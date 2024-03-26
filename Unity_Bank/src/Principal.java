@@ -38,10 +38,12 @@ public class Principal {
                 
                     System.out.print("Digite o número da conta de destino: ");
                     String numeroContaDestino = scanner.nextLine();
+                    System.out.print("Digite o nome da conta de destino: ");
+                    String destinoNome = scanner.nextLine();
                     System.out.print("Digite o valor a ser transferido: ");
                     double valorTransferencia = scanner.nextDouble();
                     scanner.nextLine();
-                    TransferenciaBancaria transferencia = new TransferenciaBancaria(numeroConta, numeroAgencia, numeroContaDestino, numeroContaDestino, valorTransferencia);
+                    TransferenciaBancaria transferencia = new TransferenciaBancaria(numeroConta, numeroAgencia, numeroContaDestino, numeroContaDestino, destinoNome,valorTransferencia);
                     transferencia.efetuarTransferencia();
                 }
             }
