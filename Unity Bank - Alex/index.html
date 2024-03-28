@@ -1,28 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="Ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="unity.css">
     <title>Login</title>
-    <script>
-        document.querySelector('.btn-register').addEventListener('click', function(){
-            document.querySelector('.card-login').style.display = 'none';
-            document.querySelector('.card-register').style.display = 'flex';
-        });
-    
-        document.querySelector('.btn-login').addEventListener('click', function(){
-            document.querySelector('.card-login').style.display = 'flex';
-            document.querySelector('.card-register').style.display = 'none';
-        });
-    </script>
-    
-    
 </head>
 
 <body>
+    
     <div class="main-login">
         <div class="left-login">
             <h1>Faça login<br>E entre para o nosso time</h1>
@@ -35,40 +22,52 @@
                     <label for="usuario">Usuário</label>
                     <input type="text" name="usuario" placeholder="Usuário">
                 </div>
-            </div>
                 <div class="textfield">
                     <label for="senha">Senha</label>
                     <input type="password" name="senha" placeholder="Senha">
                 </div>
                 <button class="btn-login">Login</button>
-            </div>
-        </div>
-        <div class="card-register">
-            <h1>REGISTRO</h1>
-
-            <div class="textfield">
-                <label for="cpf">CPF</label>
-                <input type="text" name="cpf" placeholder="CPF">
-            </div>
-            <div class="textfield">
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" placeholder="Nome">
-            </div>
-            <div class="textfield">
-                <label for="senha_registro">Senha</label>
-                <input type="password" name="senha_registro" placeholder="Senha">
-            </div>
-            <div class="radiofield">
-                <input type="radio" id="conta_salario" name="tipo_conta" value="salario">
-                <label for="conta_salario">Conta Salário</label><br>
-
-                <input type="radio" id="conta_corrente" name="tipo_conta" value="corrente">
-                <label for="conta_corrente">Conta Corrente</label>
-            </div>
-            <button class="btn-register">Registrar</button>
+                <button class="btn-register">Registrar</button>
+            </div> <!-- Fechamento da div com classe card-login -->
+            
+            <div class="card-register">
+                <h1>REGISTRO</h1>
+        
+                <div class="textfield">
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf" placeholder="CPF">
+                </div>
+                <div class="textfield">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" placeholder="Nome">
+                </div>
+                <div class="textfield">
+                    <label for="senha_registro">Senha</label>
+                    <input type="password" name="senha_registro" placeholder="Senha">
+                </div>
+                <div class="radiofield">
+                    <input type="radio" id="conta_salario" name="tipo_conta" value="salario">
+                    <label for="conta_salario">Conta Salário</label><br>
+        
+                    <input type="radio" id="conta_corrente" name="tipo_conta" value="corrente">
+                    <label for="conta_corrente">Conta Corrente</label>
+                </div>
+                <button class="btn-cadastrar"><a href="oficial.html">Registrar</a></button>
+            </div> <!-- Fechamento da div com classe card-register -->
         </div>
     </div>
 
+    <script>
+        document.querySelector('.btn-login').addEventListener('click', function(){
+            document.querySelector('.card-login').style.display = 'flex';
+            document.querySelector('.card-register').style.display = 'none';
+        });
+
+        document.querySelector('.btn-register').addEventListener('click', function(){
+            document.querySelector('.card-login').style.display = 'none';
+            document.querySelector('.card-register').style.display = 'flex';
+        });
+    </script>
 </body>
 
 </html>
