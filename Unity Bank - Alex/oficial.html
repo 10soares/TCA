@@ -1,11 +1,69 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
+<html lang="pt-BR">
+<head> <!-- inicio head -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unity Bank</title>
-</head>
-<body>
+    <link rel="stylesheet" href="banco.css">
+</head><!-- fim head -->
+
+<body><!-- inicio body -->
+    <header class="cabecalho">
+        <img class="cabecalho-img" src="Coins-bro.svg" alt="dinheiro">
+        <nav class="cabecalho-menu">
+            <a class="cabecalho-menu-item">Principal</a>
+            <a class="cabecalho-menu-item">Transferências</a>
+            <a class="cabecalho-menu-item">Menu</a>
+            <a class="cabecalho-menu-item">Meu perfil</a>
+        </nav>
+    </header>
+
+    <main class="conteudo">
+        <section class="conteudo-principal"> <!---section 1-->
+            <div class="conteudo-principal-escrito">
+                <h1 class="conteudo-principal-escrito-titulo"><strong>Unity Bank</strong></h1>
+                <h2 class="conteudo-principal-escrito-subtitulo">Segurança, investimento e econômia<br><strong>você só encontra aqui!</strong></h2>
+                <button class="conteudo-principal-escrito-botao">Ver extrato</button>
+            </div>
+            <img class="conteudo-principal-imagem" src="calculando.svg" alt="camadas de investimentos">
+        </section>
+
+        <section>
+            <h3>Olá, (nome cliente)</h3>
+            <div id="saldo" style="display: none;">Saldo: R$ 1000,00</div>
+            <button onclick="toggleSaldo()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-eye feather-eye--closed">
+                    <path d="M1.019 12c.52-.814 1.364-1.408 2.43-1.715C4.6 9.9 6.013 10 7 10c1.494 0 3.1-.618 5-2-.9-1.382-3.3-4-5-4-1.418 0-2.367.882-3 2-.635-1.118-1.582-2-3-2-1.7 0-4.1 2.6-5 4 .9 1.4 3.3 4 5 4 1.113 0 2.242-.663 3-2 .758 1.337 1.887 2 3 2 .861 0 2.139-.184 3-1 1.337-1.337 2.244-3.42 3-5H15v-2h2c.445 0 .781.37.707.813-.782 5.163-3.42 8.235-4.688 9.28-.27.218-.64.437-1.06.656-.848.442-1.73.813-2.558 1.03-.157.053-.316.078-.472.078-.635 0-1.5-.393-2.25-1.25-.75-.857-1.25-1.98-1.75-3.125C5.27 10.812 4.498 9.602 4.026 9.007 3.18 7.693 2.45 6 1.999 6 .75 6 0 7.172 0 8.46c0 .605.19 1.226.582 1.908.156.29.338.592.54.906.06.092.124.19.19.282z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+            </button>
+        </section>
+        
+        
+        
+        
+    </main>
+
+    <footer class="rodape">
+        <img class="rodape-imagem" src="lock-closed.svg" alt="segurança">
+    </footer>
+
+    <script> 
+        function toggleSaldo() {
+            var saldoElement = document.getElementById('saldo');
+            var eyeIcon = document.querySelector('svg');
     
-</body>
+            if (saldoElement.style.display === 'none') {
+                saldoElement.style.display = 'block';
+                eyeIcon.setAttribute('fill', '#000'); // Altera a cor do ícone para indicar que o saldo está visível
+            } else {
+                saldoElement.style.display = 'none';
+                eyeIcon.setAttribute('fill', 'transparent'); // Altera a cor do ícone para indicar que o saldo está oculto
+            }
+        }
+    </script> <!-- fim script -->
+    
+    
+
+</body><!-- fim body -->
 </html>

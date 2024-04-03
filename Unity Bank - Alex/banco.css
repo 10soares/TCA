@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sarala:wght@400;700&display= trocar');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body{
+    font-size: 100%;
+    background: linear-gradient(68.15deg,  #77ffc0 16.62%, #201b2c 85.61%);
+}
+
+.cabecalho{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 24px;
+}
+
+.cabecalho-img{
+    height: 90px;
+}
+
+.cabecalho-menu{
+    display: flex;
+    gap: 35px;
+}
+
+.cabecalho-menu-item{
+    font-family: 'Sarala', sans-serif;
+    color: aliceblue;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+.conteudo{
+    margin-bottom: 48px;
+    border-top: 0.4px solid #fff2e7;
+}
+
+.conteudo-principal{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.conteudo-principal-escrito{
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.conteudo-principal-escrito-titulo{
+    font-family:'righteous', cursive;
+    font-weight: 400;
+    font-size: 64px;
+    color:  #201b2c;
+}
+
+.conteudo-principal-escrito-subtitulo{
+    font-family: 'Sarala' sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #ecd6c4;
+}
+
+
+
+
+
+
+
+
+
+
+
+.feather-eye {
+    width: 24px;
+    height: 24px;
+    color: #333; /* Cor do ícone de olho fechado */
+    transition: color 0.3s ease; /* Efeito de transição ao mudar a cor */
+}
+
+.feather-eye:hover {
+    color: #f00; /* Cor do ícone de olho fechado ao passar o mouse */
+}
+
+.feather-eye--closed {
+    color: #333; /* Cor do ícone de olho fechado */
+}
+
+.feather-eye--open {
+    color: #f00; /* Cor do ícone de olho aberto */
+}

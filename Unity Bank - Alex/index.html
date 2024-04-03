@@ -1,32 +1,34 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="unity.css">
-    <title>Login</title>
+    <meta name="description" content="Uma jornada de mil quilômetros precisa começar com um simples passo, investir em conhecimento sempre rende os melhores juros, com a Unity Bank, você tem o que precisa">
+    <title>Unity Bank Login</title>
 </head>
 
 <body>
-    
+
     <div class="main-login">
         <div class="left-login">
-            <h1>Faça login<br>E entre para o nosso time</h1>
+            <h1>Faça login<br>E faça parte do nosso time</h1>
+            <p>O que você precisa pra ficar no controle da sua vida financeira<br> Tem aqui no Unity Bank.</p>
             <img src="contadorBanco.svg" class="left-login-image" alt="Animação contador do Banco">
         </div>
         <div class="right-login">
             <div class="card-login">
                 <h1>LOGIN</h1>
                 <div class="textfield">
-                    <label for="usuario">Usuário</label>
+                    <label for="usuario"><b>Usuário</b></label>
                     <input type="text" name="usuario" placeholder="Usuário">
                 </div>
                 <div class="textfield">
-                    <label for="senha">Senha</label>
+                    <label for="senha"><b>Senha</b></label>
                     <input type="password" name="senha" placeholder="Senha">
                 </div>
-                <button class="btn-login">Login</button>
+                <button class="btn-login"><a href="oficial.html">Login</a></button>
                 <button class="btn-register">Registrar</button>
             </div> <!-- Fechamento da div com classe card-login -->
             
@@ -35,10 +37,11 @@
         
                 <div class="textfield">
                     <label for="cpf">CPF</label>
-                    <input type="text" name="cpf" placeholder="CPF">
+                    <input type="number" name="cpf" id="cpf" placeholder="CPF" pattern="[0-9]{11}">
                 </div>
+                
                 <div class="textfield">
-                    <label for="nome">Nome</label>
+                    <label for="nome">Nome completo</label>
                     <input type="text" name="nome" placeholder="Nome">
                 </div>
                 <div class="textfield">
@@ -68,6 +71,7 @@
             document.querySelector('.card-register').style.display = 'flex';
         });
     </script>
+    
 </body>
 
 </html>

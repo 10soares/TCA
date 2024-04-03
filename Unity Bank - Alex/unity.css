@@ -33,9 +33,13 @@ body * {
     color: #77ffc0;
 }
 
+.left-login > p {
+    color: #77ffc0;
+}
+
 .left-login-image{
     width: 35vw;
-    margin: 0px 500px 0px 400px;
+    margin: 0px 400px 0px;
 }
 
 .right-login{
@@ -180,6 +184,9 @@ body * {
         flex-direction: column;
     }
     .left-login > h1 {
+        display: none;
+    }
+    .left-login > p {
         display: none;
     }
     .left-login{
