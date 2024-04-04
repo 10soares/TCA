@@ -68,31 +68,71 @@ body{
     color: #ecd6c4;
 }
 
-
-
-
-
-
-
-
-
-
-
-.feather-eye {
-    width: 24px;
-    height: 24px;
-    color: #333; /* Cor do ícone de olho fechado */
-    transition: color 0.3s ease; /* Efeito de transição ao mudar a cor */
+.conteudo-principal-escrito-botao{
+    background-color: #201b2c;
+    width: 100px;
+    height: 40px;
+    color: #ecd6c4;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 4px 5px 4px #201b2c;
+    font-family: 'Sarala' sans-serif;
+    font-weight: 400;
+    font-size: 15px;
 }
 
-.feather-eye:hover {
-    color: #f00; /* Cor do ícone de olho fechado ao passar o mouse */
+.conteudo-principal-escrito-botao:hover{
+    background-color: rgba(236, 214, 196, 0.53);
+    cursor: pointer;
 }
 
-.feather-eye--closed {
-    color: #333; /* Cor do ícone de olho fechado */
+.conteudo-principal-imagem{
+    height: 430px;
 }
 
-.feather-eye--open {
-    color: #f00; /* Cor do ícone de olho aberto */
+.conteudo-secundario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    margin-top: 48px;
 }
+
+.conteudo-secundario-titulo{
+    border-top: 0.4px solid #fff2e7;
+    padding-top: 48px;
+    font-family:'righteous', cursive;
+    font-weight: 400;
+    font-size: 24px;
+    color: #fff2e7;
+    margin-bottom: 16px;
+}
+
+.icone-saldo {
+    color: #201b2c; /* Altere para a cor desejada */
+    background-color: #77ffc0;
+    border: none;
+    border-radius: 60px;
+}
+
+.icone-saldo:hover{
+    background-color: #77ffc0;
+    cursor: pointer;
+}
+
+.cor-saldo{
+    font-family: 'Sarala' sans-serif;
+    font-size: 18px;
+    color: #201b2c;
+}
+
+.rodape{
+    padding: 32px;
+    border-top: 0.4px solid #fff2e7;
+}
+.rodape-imagem{
+    height: 300px;
+    display: block;
+    margin: 0 auto;
+}
+
