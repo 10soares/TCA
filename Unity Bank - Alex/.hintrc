@@ -16,6 +16,8 @@
         "button-name": "off"
       }
     ],
-    "no-inline-styles": "off"
+    "no-inline-styles": "off",
+    "axe/text-alternatives": "off",
+    "leading-dot-classlist": "off"
   }
 }

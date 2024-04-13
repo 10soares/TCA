@@ -11,11 +11,24 @@
     <header class="cabecalho">
         <img class="cabecalho-img" src="Coins-bro.svg" alt="dinheiro">
         <nav class="cabecalho-menu">
-            <a class="cabecalho-menu-item" href="oficial.html">Principal</a>
-            <a class="cabecalho-menu-item" href="">Transferências</a>
-            <a class="cabecalho-menu-item" href="">Menu</a>
-            <a class="cabecalho-menu-item" href="">Meu perfil</a>
+            <ul>
+                <li class="cabecalho-menu-item" href="oficial.html">Principal</li>
+                <li class="cabecalho-menu-item" href="">Transferências</li>
+                <li class="cabecalho-menu-item" href="">Meu perfil</li>
+             </ul>
+            <div class="mobile-menu-icon">
+                <button onclick="menuShow()"><img class="icone" src="menu.svg" ></button>
+            </div>
         </nav>
+
+        <div class="mobile-menu">
+            <ul>
+            <li class="cabecalho-menu-item" href="oficial.html">Principal</li>
+            <li class="cabecalho-menu-item" href="">Transferências</li>
+            <li class="cabecalho-menu-item" href="">Meu perfil</li>
+            </ul>
+        </div>
+
     </header>
 
     <main class="conteudo">
@@ -56,9 +69,25 @@
         saldoElement.style.display = 'none';
         eyeIcon.setAttribute('name', 'eye-off-outline'); // Altera o ícone para olho fechado
     }
+
+    function menuShow() {
+    let menuMobile = document.querySelector('.cabecalho-menu');
+    let icon = document.querySelector('.icone img'); // Seleciona a imagem dentro do botão
+
+    if (menuMobile.classList.contains('.open')) {
+        menuMobile.classList.remove('.open');
+        icon.src = "menu.svg"; // Altera o ícone para o menu
+    } else {
+        menuMobile.classList.add('open');
+        icon.src = "close_menu.svg"; // Altera o ícone para o menu fechado
+    }
+}
 }
 
+    document.querySelector('.icone-menu img').src = "menu.svg";
     </script> <!-- fim script -->
+
+    
     
     <script src="https://cdn.jsdelivr.net/npm/@ionic/core@5.8.4/dist/ionic/ionic.js"></script>
 

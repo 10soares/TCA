@@ -137,16 +137,42 @@ body{
     margin: 0 auto;
 }
 
-
-
-
-
-
-@media only screen and (max-width: 950px){
-    .cabecalho-img{
-      display: none;
-    }
+.mobile-menu-icon{
+    display: none;
 }
+
+.mobile-menu{
+    display: none;
+}
+
+.mobile-menu
+
+@media only screen and (max-width: 730px){
+    .cabecalho-menu{
+        padding: 1.5rem 4rem;
+    }
+    .cabecalho-menu-item{
+        display: none;
+    }
+
+    .mobile-menu-icon{
+        display: block;
+    }
+
+    .mobile-menu-icon button{
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+
+    .open{
+        display: block;
+    }
+
+}
+
+
+
 @media only screen and (max-width: 660px){
     .cabecalho-menu-item{
        font-size: 90%;
@@ -156,7 +182,7 @@ body{
         padding: 2%;
     }
     .conteudo-principal-imagem {
-        height: 200px;
+        display: none;
     }
    .rodape-imagem{
         width: 100%;
