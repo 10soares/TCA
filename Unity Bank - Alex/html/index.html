@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="unity.css">
+    <link rel="stylesheet" href="css/unity.css">
     <meta name="description" content="Uma jornada de mil quilômetros precisa começar com um simples passo, investir em conhecimento sempre rende os melhores juros, com a Unity Bank, você tem o que precisa">
     <title>Unity Bank Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -15,18 +16,20 @@
         <div class="left-login">
             <h1>Faça login<br>E faça parte do nosso time</h1>
             <p>O que você precisa pra ficar no controle da sua vida financeira<br> Tem aqui no Unity Bank.</p>
-            <img src="contadorBanco.svg" class="left-login-image" alt="Animação contador do Banco">
+            <img src="svg/contadorBanco.svg" class="left-login-image" alt="Animação contador do Banco">
         </div>
         <div class="right-login">
             <div class="card-login">
                 <h1>LOGIN</h1>
                 <div class="textfield">
-                    <label for="usuario"><b>Usuário</b></label>
+                    <label for="usuario"><b>CPF</b></label>
                     <input type="text" name="usuario" placeholder="Usuário">
                 </div>
                 <div class="textfield">
                     <label for="senha"><b>Senha</b></label>
-                    <input type="password" name="senha" placeholder="Senha">
+                    <input type="password" id="registrado" name="senha" placeholder="Senha">
+                    <i class="bi bi-eye-fill" id="btn-senha" onclick="mostrarSenha()"></i>
+
                 </div>
                 <button class="btn-login"><a href="oficial.html">Login</a></button>
                 <button class="btn-register">Registrar</button>
@@ -46,7 +49,8 @@
                 </div>
                 <div class="textfield">
                     <label for="senha_registro">Senha</label>
-                    <input type="password" name="senha_registro" placeholder="Senha">
+                    <input type="password" id="registrado_registro" name="senha" placeholder="Senha">
+                    <i class="bi bi-eye-fill" id="btn-senha_registro" onclick="mostrarSenha()"></i>
                 </div>
                 <div class="radiofield">
                     <input type="radio" id="conta_salario" name="tipo_conta" value="salario">
@@ -60,17 +64,9 @@
         </div>
     </div>
 
-    <script>
-        document.querySelector('.btn-login').addEventListener('click', function(){
-            document.querySelector('.card-login').style.display = 'flex';
-            document.querySelector('.card-register').style.display = 'none';
-        });
-
-        document.querySelector('.btn-register').addEventListener('click', function(){
-            document.querySelector('.card-login').style.display = 'none';
-            document.querySelector('.card-register').style.display = 'flex';
-        });
-    </script>
+    <script src="javas/register_login_btn.js">   </script>
+    <script src="javas/senha_olho.js"></script>
+    <script src="javas/senha_olho-registro.js"></script>
     
 </body>
 

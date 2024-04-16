@@ -4,41 +4,95 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-decoration: none;
+    font-family: 'Sarala', sans-serif;
+
 }
 
 body{
+    height: 140vh;
     font-size: 100%;
     background: linear-gradient(68.15deg,  #77ffc0 16.62%, #201b2c 85.61%);
+   
 }
 
-.cabecalho{
+
+nav.menu-lateral{
+    width: 80px;
+    height: 100%;
+    background-color: #201b2c;
+    padding: 40px 0px 40px 1%; 
+    box-shadow: 3px 0 0 #8577ff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: .5s;
+}
+
+nav.menu-lateral.expandir{
+    width: 300px;
+}
+
+.btn-expandir{
+    width: 100%;
+    padding-left: 10px;
+}
+
+.btn-expandir > i{
+    color: antiquewhite;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu{
+    transition: .2s;
+}
+
+ul li.ativo{
+    background-color: #8577ff;
+}
+
+ul li.item-menu:hover{
+    background: blueviolet;
+}
+
+ul li.item-menu a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    padding: 24px;
+    margin-bottom: 20px;
+    line-height: 40px;
 }
 
-.cabecalho-img{
-    height: 90px;
+ul li.item-menu a .txt-link {
+    margin-left: 70px;
+    transition: .5s;
+    opacity: 0;
 }
 
-.cabecalho-menu{
-    display: flex;
-    gap: 35px;
+nav.menu-lateral.expandir .txt-link{
+    margin-left: 40px;
+    opacity: 1;
 }
 
-.cabecalho-menu-item{
-    font-family: 'Sarala', sans-serif;
-    color: aliceblue;
-    font-weight: 400;
-    font-size: 18px;
+ul li.item-menu a .icon > i{
+    font-size: 30px;
+    margin-left: 10px;
 }
+
+
+
 
 .conteudo{
     margin-bottom: 48px;
-    border-top: 0.4px solid #fff2e7;
+   
 }
 
 .conteudo-principal{
@@ -52,6 +106,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 32px;
+    padding-left: 60px;
 }
 
 .conteudo-principal-escrito-titulo{
@@ -137,42 +192,16 @@ body{
     margin: 0 auto;
 }
 
-.mobile-menu-icon{
-    display: none;
+
+
+
+
+
+@media only screen and (max-width: 950px){
+    .cabecalho-img{
+      display: none;
+    }
 }
-
-.mobile-menu{
-    display: none;
-}
-
-.mobile-menu
-
-@media only screen and (max-width: 730px){
-    .cabecalho-menu{
-        padding: 1.5rem 4rem;
-    }
-    .cabecalho-menu-item{
-        display: none;
-    }
-
-    .mobile-menu-icon{
-        display: block;
-    }
-
-    .mobile-menu-icon button{
-        background-color: transparent;
-        border: none;
-        cursor: pointer;
-    }
-
-    .open{
-        display: block;
-    }
-
-}
-
-
-
 @media only screen and (max-width: 660px){
     .cabecalho-menu-item{
        font-size: 90%;
@@ -182,7 +211,7 @@ body{
         padding: 2%;
     }
     .conteudo-principal-imagem {
-        display: none;
+        height: 200px;
     }
    .rodape-imagem{
         width: 100%;

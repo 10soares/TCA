@@ -17,7 +17,11 @@
       }
     ],
     "no-inline-styles": "off",
-    "axe/text-alternatives": "off",
-    "leading-dot-classlist": "off"
+    "axe/parsing": [
+      "default",
+      {
+        "duplicate-id-active": "off"
+      }
+    ]
   }
 }
