@@ -1,127 +1,238 @@
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class ContaBancaria {
-	private static final String caminhoArquivo = "C:\\Users\\Tarde\\Desktop\\Saquepague-Pagonext.-.Listas.de.clientes\\Saquepague-Pagonext - Listas de clientes\\lista-3-contas-salario-tipo-de-conta.csv";
-	private List<String> linhasCSV;
+	private ContaDAO contaDAO;
 
-	public ContaBancaria() {
-		this.linhasCSV = new ArrayList<>();
-		carregarCSV();
-	}
-
-	private void carregarCSV() {
-		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(caminhoArquivo))) {
-			String linha;
-			while ((linha = bufferedReader.readLine()) != null) {
-				linhasCSV.add(linha);
-			}
-		} catch (IOException e) {
-			System.err.println("Erro ao ler o arquivo CSV: " + e.getMessage());
-		}
-	}
-
-	public List<String> getLinhasCSV() {
-		return linhasCSV;
+	public ContaBancaria(ContaDAO contaDAO) {
+		this.contaDAO = contaDAO;
 	}
 
 	public void realizarOperacao(Scanner scanner) {
-	    System.out.print("Digite o CPF que deseja buscar: ");
-	    String cpfPesquisado = scanner.nextLine();
+		boolean continuar = true;
 
-	    System.out.print("Digite a senha da conta: ");
-	    String senha = scanner.nextLine();
+		while (continuar) {
+			System.out.println("===========================");
+			System.out.println("Bem-vindo ao Unity Bank!");
+			System.out.println("Escolha uma opção:");
+			System.out.println("1. Login");
+			System.out.println("2. Cadastrar");
+			System.out.println("===========================");
 
-	    double saldoOrigem = 0;
+			System.out.print("Opção: ");
+			int opcao = Integer.parseInt(scanner.nextLine());
 
-	    try {
-	        FileReader fileReader = new FileReader(caminhoArquivo);
-	        BufferedReader bufferedReader = new BufferedReader(fileReader);
+			switch (opcao) {
+			case 1:
+				fazerLogin(scanner);
+				continuar = false;
+				break;
+			case 2:
+				cadastrarUsuario(scanner);
+				break;
+			default:
+				System.out.println("Opção inválida.");
+			}
+		}
+	}
 
-	        String linha;
-	        while ((linha = bufferedReader.readLine()) != null) {
-	            String[] partes = linha.split(",");
-	            String cpf = partes[1].trim();
+	private void fazerLogin(Scanner scanner) {
+		System.out.print("Digite o CPF que deseja buscar: ");
+		String cpfPesquisado = scanner.nextLine();
 
-	            if (cpf.equals(cpfPesquisado)) {
-	                String nome = partes[0].trim();
-	                String numeroContaOrigem = partes[2].trim();
-	                String numeroAgenciaOrigem = partes[3].trim();
-	                double saldo = Double.parseDouble(partes[5].trim());
-	                String tipoConta = partes[4].trim();
-	                double limiteCredito = Double.parseDouble(partes[6].trim());
-	                String senhaConta = partes[partes.length - 1].trim();
+		System.out.print("Digite a senha da conta: ");
+		String senha = scanner.nextLine();
 
-	                while (!senha.equals(senhaConta)) {
-	                    System.out.println("Senha incorreta.");
-	                    System.out.print("Digite a senha novamente: ");
-	                    senha = scanner.nextLine();
-	                }
+		boolean cpfEncontrado = false;
+		Conta contaOrigem = null;
 
-	                System.out.println("Conta encontrada para o CPF: " + cpfPesquisado + ":");
-	                System.out.println("Nome: " + nome);
-	                System.out.println("CPF: " + cpf);
-	                System.out.println("Número da Conta Origem: " + numeroContaOrigem);
-	                System.out.println("Número da Agência Origem: " + numeroAgenciaOrigem);
-	                System.out.println("Saldo Origem: " + saldo);
+		Conta conta = contaDAO.buscarPorCPF(cpfPesquisado);
+		if (conta != null) {
+			cpfEncontrado = true;
 
-	                if (tipoConta.equals("Conta corrente")) {
-	                    System.out.println("Limite de Crédito: " + limiteCredito);
-	                    System.out.println("Tipo de Conta: " + tipoConta);
-	                } else {
-	                    System.out.println("Tipo de Conta: " + tipoConta);
-	                }
+			while (!conta.getSenha().equals(senha)) {
+				System.out.println("Senha incorreta. Tente novamente:");
+				senha = scanner.nextLine();
+			}
 
-	                System.out.println("\n===============================");
-	                System.out.println("Escolha o tipo de operação:");
-	                System.out.println("1. Transferência");
-	                System.out.println("2. Saque");
-	                System.out.println("3. Deposito");
-	                System.out.println("===============================");
-	                System.out.print("Opção: ");
-	                
-	                int opcao = scanner.nextInt();
-	                scanner.nextLine(); 
+			contaOrigem = conta;
+			System.out.println("=================================================");
+			System.out.println("\nConta encontrada para o CPF: " + cpfPesquisado);
+			System.out.println("Nome: " + conta.getNome());
+			System.out.println("CPF: " + conta.getCpf());
+			System.out.println("Número da Agência: " + conta.getNumeroAgencia());
+			System.out.println("Número da conta: " + conta.getNumeroConta() + ":");
+			System.out.println("Saldo: " + conta.getSaldo());
+			System.out.println("=================================================\n");
 
-	                switch (opcao) {
-	                    case 1:
-	                        System.out.print("Digite o número da conta de destino: ");
-	                        String numeroContaDestino = scanner.nextLine();
+			String tipoConta = conta.getTipoConta();
 
-	                        if (numeroContaDestino.equals(numeroContaOrigem)) {
-	                            System.out.println("Não é possível realizar transferência para a mesma conta origem.");
-	                            return;
-	                        }
+			double limiteCredito = conta.getLimiteCredito();
+			double saldo = conta.getSaldo();
 
-	                        System.out.print("Digite o valor a ser transferido: ");
-	                        double valorTransferencia = scanner.nextDouble();
+			boolean continuarOperacao = true;
 
-	                        saldoOrigem = saldo;
+			while (continuarOperacao) {
+				if (tipoConta.equals("Conta corrente")) {
 
-	                        TransferenciaBancaria transferencia = new TransferenciaBancaria(numeroContaOrigem, numeroAgenciaOrigem,
-	                                numeroContaDestino, null, valorTransferencia, saldoOrigem);
-	                        transferencia.efetuarTransferencia();
-	                        break;
+					System.out.println("Limite de Crédito: " + limiteCredito);
+					System.out.println("Tipo de Conta: " + tipoConta);
 
-	                    case 2:
-	                        System.out.println("saque nao implementada");
-	                        break;
-	                    case 3:
-	                    	System.out.println("deposito nao implementada");
-	                        break;
+					System.out.println("\n============================");
+					System.out.println("Escolha uma opção:");
+					System.out.println("1. Transferência");
+					System.out.println("2. Saque");
+					System.out.println("3. Depósito");
+					System.out.println("4. Saldo");
+					System.out.println("5. Pagar utilizando Crédito");
+					System.out.println("6. Pagar Fatura");
+					System.out.println("7. Sair");
+					System.out.println("============================");
+					System.out.print("Opção: ");
+					int opcao = Integer.parseInt(scanner.nextLine());
 
-	                    default:
-	                        System.out.println("Opção inválida.");
-	                        return;
-	                }
+					switch (opcao) {
+					case 1:
+						System.out.print("Digite o número da conta de destino: ");
+						String numeroContaDestino = scanner.nextLine();
+						System.out.print("Digite o valor a ser transferido: ");
+						double valorTransferencia = Double.parseDouble(scanner.nextLine());
+						double novoSaldoOrigem = contaOrigem.transferir(numeroContaDestino, valorTransferencia);
+						System.out.println("Novo saldo da conta origem após a transferência: " + novoSaldoOrigem);
+						contaDAO.atualizarSaldo(contaOrigem);
+						Conta contaDestino = contaDAO.buscarPorNumeroConta(numeroContaDestino);
+						contaDestino.setSaldo(contaDestino.getSaldo() + valorTransferencia);
+						contaDAO.atualizarSaldoDestino(contaDestino);
+						break;
+					case 2:
+						System.out.print("Digite o valor a ser sacado: ");
+						double valorSaque = Double.parseDouble(scanner.nextLine());
+						double novoSaldoSaque = contaOrigem.sacar(valorSaque);
+						System.out.println("Novo saldo da conta após o saque: " + novoSaldoSaque);
+						contaDAO.atualizarSaldo(contaOrigem);
+						break;
+					case 3:
+						System.out.print("Digite o valor a ser depositado: ");
+						double valorDeposito = Double.parseDouble(scanner.nextLine());
+						double novoSaldoDeposito = contaOrigem.depositar(valorDeposito);
+						System.out.println("Novo saldo da conta após o depósito: " + novoSaldoDeposito);
+						contaDAO.atualizarSaldo(contaOrigem);
+						break;
+					case 4:
+						System.out.println("Saldo da conta: " + saldo);
+						break;
+					case 5:
+						System.out.print("Digite o valor a ser pago utilizando o limite de crédito: ");
+						double valorPagamento = Double.parseDouble(scanner.nextLine());
 
-	                break;
-	            }
-	        }
+						if (valorPagamento <= limiteCredito) {
+							double novoLimiteCredito = contaOrigem.pagarComLimiteCredito(valorPagamento);
+							System.out.println("Novo limite de crédito após o pagamento: " + novoLimiteCredito);
+							contaDAO.atualizarCredito(contaOrigem);
+						} else {
+							System.out.println("Valor do pagamento excede o limite de crédito disponível.");
+						}
+						break;
+					case 6:
+						System.out.print("Digite o valor da fatura a ser paga: ");
+						double valorFatura = Double.parseDouble(scanner.nextLine());
+						double novoLimiteCredito = contaOrigem.pagarFatura(valorFatura);
+						System.out.println("Novo limite de crédito após o pagamento da fatura: " + novoLimiteCredito);
+						contaDAO.atualizarCredito(contaOrigem);
+						break;
+					case 7:
+						System.out.println("Encerrando o Unity Bank. Obrigado por usar nossos serviços. Até logo!");
+						System.exit(0);
+						break;
+					default:
+						System.out.println("Opção inválida.");
+						break;
+					}
+				} else {
+					System.out.println("===========================");
+					System.out.println("\nEscolha uma opção:");
+					System.out.println("1. Saque");
+					System.out.println("2. Depósito");
+					System.out.println("3. Sair");
+					System.out.println("===========================");
+					System.out.print("Opção: ");
+					int opcao = Integer.parseInt(scanner.nextLine());
 
-	        bufferedReader.close();
-	    } catch (IOException e) {
-	        System.err.println("Erro ao ler o arquivo: " + e.getMessage());
-	    }}}
+					switch (opcao) {
+					case 1:
+						System.out.print("Digite o valor a ser sacado: ");
+						double valorSaque = Double.parseDouble(scanner.nextLine());
+						double novoSaldoSaque = contaOrigem.sacar(valorSaque);
+						System.out.println("Novo saldo da conta após o saque: " + novoSaldoSaque);
+						contaDAO.atualizarSaldo(contaOrigem);
+						break;
+					case 2:
+						System.out.print("Digite o valor a ser depositado: ");
+						double valorDeposito = Double.parseDouble(scanner.nextLine());
+						double novoSaldoDeposito = contaOrigem.depositar(valorDeposito);
+						System.out.println("Novo saldo da conta após o depósito: " + novoSaldoDeposito);
+						contaDAO.atualizarSaldo(contaOrigem);
+						break;
+					case 3:
+						System.out.println("Encerrando o Unity Bank. Obrigado por usar nossos serviços. Até logo!");
+						System.exit(0);
+						break;
+					default:
+						System.out.println("Opção inválida.");
+						break;
+					}
+				}
+			}
+		}
+
+		if (!cpfEncontrado) {
+			System.out.println("CPF e/ou número de conta não encontrado(s).");
+		}
+	}
+
+	private void cadastrarUsuario(Scanner scanner) {
+		System.out.println("---- Cadastro de Usuário ----");
+		System.out.print("Nome completo: ");
+		String nome = scanner.nextLine();
+
+		System.out.print("CPF: ");
+		String cpf = scanner.nextLine();
+
+		Random rand = new Random();
+		int agenciaNumero = rand.nextInt(999) + 100;
+		int agenciaDigito = rand.nextInt(9);
+		String numeroAgencia = agenciaNumero + "-" + agenciaDigito;
+
+		int contaParte1 = rand.nextInt(90) + 10;
+		int contaParte2 = rand.nextInt(9000) + 1000;
+		String numeroConta = contaParte1 + "." + contaParte2;
+
+		System.out.println("Escolha o tipo de conta:");
+		System.out.println("1. Conta Corrente");
+		System.out.println("2. Conta Salário");
+		System.out.print("Opção: ");
+		int opcaoConta = Integer.parseInt(scanner.nextLine());
+
+		String tipoConta;
+		switch (opcaoConta) {
+		case 1:
+			tipoConta = "Conta corrente";
+			break;
+		case 2:
+			tipoConta = "Conta salário";
+			break;
+		default:
+			System.out.println("Opção inválida. Será cadastrada como Conta Corrente.");
+			tipoConta = "Conta corrente";
+		}
+
+		System.out.print("Digite sua senha: ");
+		String senha = scanner.nextLine();
+
+		Conta novaConta = new Conta(nome, cpf, numeroConta, numeroAgencia, 0, 0, tipoConta, senha);
+		contaDAO.salvar(novaConta);
+		System.out.println("seu número da agencia é: "+numeroAgencia);
+		System.out.println("seu número da conta é: "+numeroConta);
+		System.out.println("Usuário cadastrado com sucesso!");
+	}
+}

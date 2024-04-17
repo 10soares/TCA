@@ -6,13 +6,13 @@ public class Conta {
     private double saldo;
     private double limiteCredito;
     private String tipoConta;
+    private String senha;
 
-    
-    public Conta() {}
-        
+    public Conta() {
+    }
 
-
-    public Conta(String nome, String cpf, String numeroConta, String numeroAgencia, double saldo, double limiteCredito, String tipoConta) {
+    public Conta(String nome, String cpf, String numeroConta, String numeroAgencia, double saldo, double limiteCredito,
+                 String tipoConta, String senha) {
         this.nome = nome;
         this.cpf = cpf;
         this.numeroConta = numeroConta;
@@ -20,9 +20,9 @@ public class Conta {
         this.saldo = saldo;
         this.limiteCredito = limiteCredito;
         this.tipoConta = tipoConta;
+        this.senha = senha;
     }
 
-    // Getters e setters
     public String getNome() {
         return nome;
     }
@@ -77,5 +77,67 @@ public class Conta {
 
     public void setTipoConta(String tipoConta) {
         this.tipoConta = tipoConta;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public double sacar(double valorSaque) {
+        if (saldo + limiteCredito < valorSaque) {
+            System.out.println("Saldo insuficiente para saque.");
+            return saldo;
+        }
+
+        System.out.println("Saque de " + valorSaque + " realizado com sucesso na conta " + this.numeroConta);
+        this.saldo -= valorSaque;
+        return saldo;
+    }
+
+    public double depositar(double valorDeposito) {
+        this.saldo += valorDeposito;
+        System.out.println("Depósito de " + valorDeposito + " realizado com sucesso na conta " + this.numeroConta);
+        return saldo;
+    }
+
+    public double transferir(String numeroContaDestino, double valorTransferencia) {
+        if (saldo < valorTransferencia) {
+            System.out.println("Saldo insuficiente para transferência.");
+            return saldo;
+		}
+
+        System.out.println("Transferência de " + valorTransferencia + " realizada com sucesso da conta "
+                + this.numeroConta + " para a conta " + numeroContaDestino);
+        this.saldo -= valorTransferencia;
+        return saldo;
+    }
+
+    public double pagarComLimiteCredito(double valorPagamento) {
+        if (limiteCredito < valorPagamento) {
+            System.out.println("Limite de crédito insuficiente para realizar o pagamento.");
+            return limiteCredito;
+        }
+
+        limiteCredito -= valorPagamento;
+
+        System.out.println("Pagamento de R$ " + valorPagamento + " realizado com sucesso utilizando o limite de crédito.");
+        
+        return limiteCredito;
+    }
+    
+    public double pagarFatura(double valorFatura) {
+        if (saldo >= valorFatura) {
+            saldo -= valorFatura;
+            limiteCredito += valorFatura; 
+            System.out.println("Fatura de R$ " + valorFatura + " paga com sucesso utilizando o saldo normal.");
+        } else {
+            System.out.println("Saldo insuficiente para pagar a fatura.");
+        }
+        
+        return limiteCredito; 
     }
 }
