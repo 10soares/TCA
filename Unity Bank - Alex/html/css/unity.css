@@ -3,6 +3,7 @@
 body{
     margin: 0;
     font-family: 'Noto Sans', sans-serif;
+    height: 100vh;
 }
 
 body * {
@@ -190,6 +191,10 @@ div i{
     .card-login{
         width: 85%;
     }
+
+    body{
+        height: 50vh
+    }
 }
 @media only screen and (max-width: 600px){
     .main-login{
@@ -214,7 +219,17 @@ div i{
         width: 50vw;
     }
     .card-login{
-        width: 90%;
+        width: 80%;
+        height: 90%;
     }
+    /* div i{
+        font-size: 25px;
+        cursor: pointer;
+        
+        position: absolute;
+        right: 22%;
+        margin-top: 8%;
+        color: #ccccccf1;
+    } */
 
 }
