@@ -11,8 +11,8 @@
 body{
     height: 100vh;
     font-size: 100%;
-    background: linear-gradient(68.15deg,  #77ffc0 16.62%, #201b2c 85.61%);
-   
+    background: linear-gradient(68.15deg,  #3ce998 16.62%, #201b2c 85.61%);
+    margin: 0;
 }
 
 
@@ -91,7 +91,7 @@ ul li.item-menu a .icon > i{
 
 
 .conteudo{
-    margin-bottom: 48px;
+    margin-bottom: 0;
    
 }
 
@@ -183,13 +183,15 @@ ul li.item-menu a .icon > i{
 }
 
 .rodape{
-    padding: 32px;
+    padding: 0px;
     border-top: 0.4px solid #fff2e7;
+    height: 100px;
 }
 .rodape-imagem{
-    height: 300px;
+    height: 100%;
     display: block;
-    margin: 0 auto;
+    padding-left: 601px;
+    height: 130px;
 }
 
 
@@ -197,9 +199,13 @@ ul li.item-menu a .icon > i{
 
 
 
-@media only screen and (max-width: 950px){
+@media only screen and (max-width: 1100px){
     .cabecalho-img{
       display: none;
+    }
+
+    .rodape-imagem{
+        display: none;
     }
 }
 @media only screen and (max-width: 660px){
@@ -213,10 +219,7 @@ ul li.item-menu a .icon > i{
     .conteudo-principal-imagem {
         height: 200px;
     }
-   .rodape-imagem{
-        width: 100%;
-        height: auto;
-    }
+
     .right-login{
         width: 100%;
         height: auto;
