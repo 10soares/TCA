@@ -1,26 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="PT-br">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Operações</title>
     <link rel="stylesheet" href="css/operacao.css">
 </head>
 <body>
-    <div class="main-operacao"></div>
+    <div class="main-operacao">
     <header class="txt-titulo">
         <h1>Operações</h1>
     </header>
+    </div>
     <div class="center-operar">
         <h3>Escolha a sua operação</h3>
     </div>
-    <div class="card-operacao">
-        <button>Tranferências</button>
-        <button>Saldo</button>
-        <button>Depósito</button>
-        <button>Sacar</button>
-        <button>Pagar com limite de crédito</button>
-        <button>Pagar Fatura</button>
-    </div>
+
+<nav class="card-operacao">  
+    <ul>
+        <!-- <li class="item-menu ativo">
+        <a  href="#">
+            <span class="icon"><i class="bi bi-house"></i></span>
+            <span class="txt-link">Principal</span>
+        </a>
+        </li> -->
+
+        <li class="itemOP">
+            <a  href="#">
+                <span class="icon"><i class="bi bi-arrow-repeat"></i></span>
+                <button class="btn-operar"><span class="txt"></span>Tranferências</button> 
+            </a>
+        </li>
+
+        <li class="itemOP">
+            <a  href="#">
+                <span class="icon"><i class="bi bi-wallet2"></i></span>
+                <button class="btn-operar"><span class="txt"></span>Saldo</button> 
+            </a>
+        </li>
+
+        <li class="itemOP">
+            <a  href="#">
+                <span class="icon"><i class="bi bi-cash-coin"></i></span>
+                <button class="btn-operar"><span class="txt"></span>Depósito</button>
+            </a>
+        </li>
+
+        <li class="itemOP">
+            <a  href="#">
+                <span class="icon"><i class="bi bi-send-arrow-up"></i></span>
+                <button class="btn-operar"><span class="txt"></span>Sacar</button>
+            </a>
+        </li>
+
+        <li class="itemOP">
+            <a  href="#">
+                <span class="icon"><i class="bi bi-credit-card-2-back"></i></span>
+                <button class="btn-operar"><span class="txt"></span>Pagar com limite de crédito</button>
+            </a>
+        </li>
+
+        <li class="itemOP">
+            <a  href="#">
+                <span class="icon"><i class="bi bi-wallet-fill"></i></span>
+                <button class="btn-operar"><span class="txt">Pagar Fatura</button></span>
+            </a>
+        </li>
+
+    </ul> 
+</nav>
+    
 </body>
 </html>

@@ -1,20 +1,57 @@
-.txt-titulo{
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sarala:wght@400;700&display= trocar');
 
+*{
+    padding: 0;
+    margin: 0;
+    
+    font-family: 'Sarala', sans-serif ;
+}
+
+body{
+    background: linear-gradient(68.15deg, rgb(67, 67, 197) 16.62%, #2f2841 85.61%);
+    height: 100vh;
+}
+
+.txt{
+    margin-left: 12px;
+}
+
+ul li.itemOP a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 9px 4%;
+    display: flex;
+    margin-bottom: 20px;
+    line-height: 40px;
+}
+
+ul {
+    height: 100%;
+    list-style-type: none;
+}
+
+.btn-operar{
+    color: rgb(255, 255, 255);
+    background-color: #2f2841;
+    border-radius: 20px;
+    width: 150px;
+    cursor: pointer;
+}
+
+ul li.itemOP a .icon{
+    margin-right: 25px;
 }
 
 
-
-
-
-
 .card-operacao{
-    width: 60%;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 30px 35px;
-    background: #2f2841;
+    background: rgb(67, 67, 197);
     border-radius: 20px;
     box-shadow: 0px 10px 40px #00000056;
 }
