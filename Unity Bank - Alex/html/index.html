@@ -23,7 +23,7 @@
                 <h1>LOGIN</h1>
                 <div class="textfield">
                     <label for="usuario"><b>CPF</b></label>
-                    <input type="text" name="usuario" placeholder="Usuário">
+                    <input type="text" name="usuario" id="cpf-cadastrado"  oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Usuário">
                 </div>
                 <div class="textfield">
                     <label for="senha"><b>Senha</b></label>
@@ -40,7 +40,7 @@
         
                 <div class="textfield">
                     <label for="cpf">CPF</label>
-                    <input type="number" name="cpf" id="cpf" placeholder="CPF" pattern="[0-9]{11}">
+                    <input type="text" name="cpf" id="cpf-cadastrando" placeholder="CPF" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                 </div>
                 
                 <div class="textfield">

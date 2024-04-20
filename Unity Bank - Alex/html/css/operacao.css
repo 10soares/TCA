@@ -3,13 +3,20 @@
 *{
     padding: 0;
     margin: 0;
-    
     font-family: 'Sarala', sans-serif ;
 }
 
 body{
     background: linear-gradient(68.15deg, rgb(67, 67, 197) 16.62%, #2f2841 85.61%);
+    overflow-x: hidden;
     height: 100vh;
+    
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    
 }
 
 .txt{
@@ -29,6 +36,7 @@ ul li.itemOP a{
 ul {
     height: 100%;
     list-style-type: none;
+    margin: 10px;
 }
 
 .btn-operar{
@@ -44,14 +52,91 @@ ul li.itemOP a .icon{
 }
 
 
+.card-operacao {
+    text-align: center;
+}
+
+.card-operacao ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.card-operacao ul li {
+    margin-bottom: 10px;
+}
+
+.card-operacao ul li .btn-operar {
+    display: inline-block;
+}
+
+.main-operacao {
+   
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    overflow-y: hidden;
+}
+    
+
+
 .card-operacao{
-    width: 40%;
+    height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 30px 35px;
     background: rgb(67, 67, 197);
     border-radius: 20px;
     box-shadow: 0px 10px 40px #00000056;
+    width: 70%; 
+    text-align: center;
+    
 }
+
+.txt-titulo {
+    text-align: center;
+    margin-top: 50px;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.txt-titulo h1 {
+    text-transform: uppercase; 
+    font-weight: bold; 
+}
+
+.txt-titulo h3 {
+    position: relative; 
+}
+
+.txt-titulo h3::after {
+    content: ''; 
+    position: absolute; 
+    bottom: -5px; 
+    left: 0; 
+    width: 100%; 
+    height: 1px; 
+    background-color: #ffffff; 
+}
+
+.icon-voltar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 20px 0;
+}
+
+.icon-voltar a {
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.icon-voltar i {
+    font-size: 24px; 
+    align-self: flex-start;
+}
+
