@@ -61,9 +61,6 @@ ul li.itemOP a .icon{
     padding: 0;
 }
 
-.card-operacao ul li {
-    margin-bottom: 10px;
-}
 
 .card-operacao ul li .btn-operar {
     display: inline-block;

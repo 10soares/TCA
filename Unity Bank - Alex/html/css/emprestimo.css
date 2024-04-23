@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Sarala:wght@400;700&display= trocar');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Sarala', sans-serif ;
+}
+
+body{
+    background-color: rgb(71, 71, 71);
+}
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; 
+}
+
+.card-emp{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.txt-icon{
+    display: flex;
+    align-items: center;
+}
+
+.right{
+    padding-left: 30px;
+    font-size: 30px;
+    color:  red;
+}
+
+.card-aviso{
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(124, 124, 129, 0.548);
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);;
+    width: 500px; 
+    text-align: center;
+}
+
+.voltar{
+background: none;
+border: none;
+cursor: pointer;
+color: rgb(255, 255, 255);
+font-size: 20px;
+padding-left: 40px;
+margin-top: 20px;
+}
