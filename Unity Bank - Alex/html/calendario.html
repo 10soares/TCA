@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +10,19 @@
 </head>
 
 <body>
-    <header class="cabeca"><h1>Calendario</header>
-    <div class="wraper">
-        <div class="days-week">
+    <div>
+        <header class="cabeca">
+            <h1>Calendario
+                <button class="volta">
+                    <a href="oficial.html" style="text-decoration: none; color: inherit;">
+                        <span><i class="bi bi-house-door-fill"></i></span>
+                    </a>
+                </button>
+        </header>
+        
+    </div>
+    <div class="casa">
+        <div class="dias-semana">
             <span>Segunda</span>
             <span>Terça</span>
             <span>Quarta</span>
@@ -21,7 +32,7 @@
             <span>Domingo</span>
         </div>
 
-        <div class="number-days">
+        <div class="numero-dia">
             <span class="mes-anterior">30</span>
             <span class="mes-anterior">31</span>
         </div>
@@ -29,4 +40,5 @@
 
     <script src="javas/calendario.js"></script>
 </body>
+
 </html>

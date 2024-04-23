@@ -29,7 +29,7 @@ body{
     padding-top: 100px;
 }
 
-.wraper{
+.casa{
 max-width: 760px;
 margin: 10px auto;
 background-color: white;
@@ -42,7 +42,7 @@ align-items: center;
 text-align: center;
 }
 
-.days-week{
+.dias-semana{
     display: flex;
     width: 100%;
     flex-wrap: wrap;
@@ -50,20 +50,20 @@ text-align: center;
     border-bottom: 1px solid #f86078;
 }
 
-.number-days{
+.numero-dia{
     display: flex;
     width: 100%;
     flex-wrap: wrap;
 }
 
-.days-week span{
+.dias-semana span{
     color: #f86078;
     font-weight: bold;
     display: inline-block;
     width: 14.2%;
 }
 
-.number-days span{
+.numero-dia span{
     display: inline-block;
     width: 14.2%;
     margin: 8px 0;
@@ -73,3 +73,26 @@ text-align: center;
 .mes-anterior{
     opacity: 0.5;
 }
+
+.pagina-inicial{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgb(216, 216, 216);
+    align-items: center;
+    padding-left: 80px;
+}
+
+.volta{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    align-items: center;
+    padding-left: 40px;
+}
+
+.volta i{
+    font-size: 20px;
+}
+

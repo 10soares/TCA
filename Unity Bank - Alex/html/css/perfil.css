@@ -6,6 +6,10 @@
     font-family: 'Sarala', sans-serif ;
 }
 
+body{
+    background-color: #ccc;
+}
+
 .titulo-pf{
     text-align: center;
     margin-top: 50px;
