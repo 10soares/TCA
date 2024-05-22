@@ -1,0 +1,32 @@
+body{
+    overflow: hidden;
+    background: linear-gradient(109deg, rgba(10, 12, 16, 0.99) 15%, rgba(10, 12, 16, 0.99) 50%, rgba(10, 12, 16, 0.99));
+    margin: 0;
+    padding: 0;
+}
+
+#voltou{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+
+#image{
+    width: 100px;
+    height: 100px;
+}
+
+
+.botao{
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    margin-top: 60px;
+    margin-left: 60px;
+    
+    }
+    

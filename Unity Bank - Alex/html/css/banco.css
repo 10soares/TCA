@@ -13,6 +13,7 @@ body{
     font-size: 100%;
     background: linear-gradient(68.15deg,  #201b2c 16.62%, #8b6ad8 85.61%);
     margin: 0;
+    overflow: hidden;
 }
 
 
@@ -97,6 +98,7 @@ ul li.item-menu a .icon > i{
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    margin-top: 100px;
 }
 
 .conteudo-principal-escrito{

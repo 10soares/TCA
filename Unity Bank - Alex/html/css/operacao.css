@@ -71,7 +71,7 @@ ul li.itemOP a .icon{
     display: flex;
     justify-content: center; 
     align-items: center; 
-    overflow-y: hidden;
+    overflow: hidden;
 }
     
 .card-operacao{
