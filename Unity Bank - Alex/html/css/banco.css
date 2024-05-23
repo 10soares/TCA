@@ -98,7 +98,7 @@ ul li.item-menu a .icon > i{
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 .conteudo-principal-escrito{
@@ -163,7 +163,7 @@ ul li.item-menu a .icon > i{
 }
 
 .icone-saldo {
-    color: #201b2c; /* Altere para a cor desejada */
+    color: #201b2c; 
     background-color: transparent;
     color: white;
     border: none;
@@ -232,6 +232,7 @@ ul li.item-menu a .icon > i{
     .rodape-imagem{
         display: none;
     }
+    
 }
 @media only screen and (max-width: 660px){
     .cabecalho-menu-item{
@@ -241,8 +242,10 @@ ul li.item-menu a .icon > i{
         flex-direction: column;
         padding: 2%;
     }
-    .conteudo-principal-imagem {
-        height: 200px;
+    nav.menu-lateral{
+        width: 15%;
+        height: 100%;
+        padding: 0;
     }
 
     .right-login{
@@ -254,3 +257,11 @@ ul li.item-menu a .icon > i{
         width: 50vw;
     }
 } 
+@media only screen and (max-width: 990px){
+    .conteudo-principal-imagem{
+        display: none;
+    }
+    .rodape{
+        border-top: none;
+    }
+}
