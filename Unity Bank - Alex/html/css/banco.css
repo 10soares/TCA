@@ -21,7 +21,7 @@ nav.menu-lateral{
     width: 80px;
     height: 100%;
     background-color: #201b2c;
-    padding: 40px 0px 40px 1%; 
+    padding: 13px 5px 16px 6px;
     box-shadow: 3px 0 0 #8577ff;
     position: fixed;
     top: 0;
@@ -141,7 +141,7 @@ ul li.item-menu a .icon > i{
 }
 
 .conteudo-principal-imagem{
-    height: 430px;
+    height: 314px;
 }
 
 .conteudo-secundario{
@@ -186,12 +186,12 @@ ul li.item-menu a .icon > i{
     padding: 0px;
     border-top: 0.4px solid #8577ff;
     height: 100px;
+    text-align: center;
 }
-.rodape-imagem{
-    height: 100%;
-    display: block;
-    padding-left: 601px;
-    height: 130px;
+
+#img-roda{
+    width: 150px;
+   
 }
 
 .cor-btn{
