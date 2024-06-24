@@ -9,7 +9,7 @@
 body{
     background: linear-gradient(68.15deg,  #8b6ad8 16.62%, #2f2841 85.61%);
     overflow-x: hidden;
-    height: 000vh;
+    height: !;
     
 }
 
@@ -90,9 +90,8 @@ ul li.itemOP a .icon{
 
 .txt-titulo {
     text-align: center;
-    margin-top: 50px;
     color: white;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .txt-titulo h1 {
