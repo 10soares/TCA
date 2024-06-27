@@ -28,25 +28,25 @@
             <h1>Como você quer transferir?</h1>
         </div>
         <div>
-            <button class="itemPIX">
+            <button class="itemPIX"  data-message="Informe o número do celular:">
                 <a href="#">
                 <span><i class="bi bi-phone"></i></span>
                 <span>Celular</span>
                 </a>
             </button>
-            <button class="itemPIX">
+            <button class="itemPIX"  data-message="Informe o CPF/CNPJ:">
                 <a href="#">
                 <span><i class="bi bi-file-richtext"></i></span>
                 <span>CPF/CNPJ</span>
                 </a>
             </button>
-            <button class="itemPIX">
+            <button class="itemPIX"  data-message="Informe o E-mail:">
                 <a href="#">
                 <span><i class="bi bi-envelope-check"></i></span>
                 <span>E-mail</span>
                 </a>
             </button>
-            <button class="itemPIX">
+            <button class="itemPIX"  data-message="Informe a chave aleatória:">
                 <a href="#">
                 <span><i class="bi bi-key"></i></span>
                 <span>Chave</span>
@@ -57,16 +57,6 @@
     <div class="footer">
     </div>
     
-    <script>
-        document.querySelectorAll('.itemPIX').forEach(function(button){
-            button.addEventListener('click', function(event){
-                event.preventDefault();
-            const usuarioInput = prompt ('Por favor, adicione a informação:');
-            if(usuarioInput !== null) {
-                alert('Conta encontrada com sucesso: '+usuarioInput);
-            }
-        });
-    });
-    </script>
+    <script src="javas/pix.js"> </script>
 </body>
 </html>
